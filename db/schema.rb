@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_183528) do
+ActiveRecord::Schema.define(version: 2021_08_23_202541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auctions", force: :cascade do |t|
+    t.integer "initial_price"
+    t.string "description"
+    t.string "item"
+    t.integer "duration_in_minutes"
+    t.datetime "started_at"
+    t.boolean "active", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_auctions_on_user_id"
+  end
+
+  create_table "bids", force: :cascade do |t|
+    t.integer "price"
+    t.bigint "user_id", null: false
+    t.bigint "auction_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auction_id"], name: "index_bids_on_auction_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +52,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_183528) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "auctions", "users"
+  add_foreign_key "bids", "auctions"
+  add_foreign_key "bids", "users"
 end
