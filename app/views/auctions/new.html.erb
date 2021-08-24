@@ -1,7 +1,7 @@
 <h1 class='container text-center'>Crie seu leilao hahahahha</h1>
 
 <div class='container text-center'>
-  <%= simple_form_for(@auction) do |f| %>
+  <%= simple_form_for @auction do |f| %>
     <%= f.input :item, label: 'Nome do item' %>
     <%= f.input :description %>
     <%= f.input :initial_price %>
