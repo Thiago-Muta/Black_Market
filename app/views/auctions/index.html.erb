@@ -1,1 +1,15 @@
-<h1><%= @auctions %></h1>
+<h1 class='container text-center'>Ativos</h1>
+
+<div class="container text-center">
+  <% @auctions.each do |auction|%>
+    <li>
+      <%= auction.initial_price %>
+      <%= auction.item %></p>
+    </li>
+    <%= link_to "Visualizar detalhes", auction_path(auction)%>
+  <% end %>
+</div>
+
+<div class="container text-center">
+  <%= link_to "criar um leilao", new_auction_path%>
+</div>
