@@ -55,5 +55,4 @@ ActiveRecord::Schema.define(version: 2021_08_23_202541) do
   add_foreign_key "auctions", "users"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "users"
-
 end
