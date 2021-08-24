@@ -1,8 +1,6 @@
-<h1>Pages#home</h1>
-<% @auctions.each do |auction|%>
-  <li>
-    <%= auction.initial_price %>
-    <%= auction.item %></p>
-    <%= auction.description %>
-  </li>
-<% end %>
+<h1 class="container text-center">Bem vindos ao Mercado Negro 🔫</h1>
+
+
+<div class="text-center">
+  <%= link_to "Visualizar leiloes", auctions_path %>
+</div>
