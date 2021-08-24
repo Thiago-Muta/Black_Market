@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Cleaning up database..."
+Auction.destroy_all
+puts "Database cleaned"
+
+puts "Creating Auction"
+Auction.create([{ initial_price: '5 reais' }, { description: 'Um quebra cabeca, faltando 3 peças' }, { item: 'Quebra Cabeça' }])
+Auction.create([{ initial_price: '10 reais' }, { description: 'Usada' }, { item: 'Escova de dentes' }])
+puts "Auction Created"
