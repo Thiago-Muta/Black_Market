@@ -9,7 +9,7 @@ puts "Cleaning up database..."
 Auction.destroy_all
 puts "Database cleaned"
 
-puts "Creating Auction"
-Auction.create([{ initial_price: '5 reais' }, { description: 'Um quebra cabeca, faltando 3 peças' }, { item: 'Quebra Cabeça' }])
-Auction.create([{ initial_price: '10 reais' }, { description: 'Usada' }, { item: 'Escova de dentes' }])
-puts "Auction Created"
+# puts "Creating Auction"
+# Auction.create( user_id: '1', initial_price: '5', description: 'Um quebra cabeca, faltando 3 peças', item: 'Quebra Cabeça')
+# Auction.create( user_id: '1', initial_price: '10', description: 'Usada', item: 'Escova de dentes')
+# puts "Auction Created"

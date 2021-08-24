@@ -1,2 +1,8 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @auctions.each do |auction|%>
+  <li>
+    <%= auction.initial_price %>
+    <%= auction.item %></p>
+    <%= auction.description %>
+  </li>
+<% end %>
