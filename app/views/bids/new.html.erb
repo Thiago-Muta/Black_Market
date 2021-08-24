@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Entre com o seu lance</h1>
+
+    <div class='container text-center'>
+      <%= simple_form_for @bid do |f| %>
+        <%= f.input :price, label: 'valor' %>
+        <%= f.submit class: "btn btn-primary btn-lg" %>
+      <% end %>
+    </div>
+</div>

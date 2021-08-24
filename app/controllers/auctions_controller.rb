@@ -7,6 +7,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find_by(id: params[:id])
+    @bid = Bid.last
     redirect_to auctions_path if @auction.nil?
   end
 
