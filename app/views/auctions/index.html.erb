@@ -1,6 +1,5 @@
 <h1 class='container text-center'>Active Auctions</h1>
 
-<body class="body">
   <div class="container text-center">
     <% @auctions.each do |auction|%>
       <div class="card">
@@ -14,4 +13,3 @@
       <%= link_to "Create a Auctions", new_auction_path, class: "btn" %>
     </div>
   </div>
-</body>
