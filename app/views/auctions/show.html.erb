@@ -4,8 +4,11 @@
     <%= @auction.item %>
     <%= @auction.description %>
     <%= @auction.user.first_name %>
+    <%= @auction.initial_price %>
     <% if @bid %>
       <%= @bid.price  %>
+    <%else%>
+      No bids yet!, BID In !
     <% end %>
 
   </li>
