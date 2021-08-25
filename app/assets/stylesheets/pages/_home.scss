@@ -1,4 +1,4 @@
 // Specific CSS for your home-page
 body {
-  background-image: url('cod.jpg');
+  background-image: url("<%= image_path('cod.jpg') %>");
 }
