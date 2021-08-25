@@ -1,14 +1,17 @@
 <h1 class="container text-center">Detalhes</h1>
 <div class="container text-center">
-  <li>
-    <%= @auction.item %>
-    <%= @auction.description %>
-    <%= @auction.user.first_name %>
-    <% if @bid %>
-      <%= @bid.price  %>
-    <% end %>
 
-  </li>
+  <ul class="card">
+    <li>
+      <%= @auction.item %>
+      <%= @auction.description %>
+      <%= @auction.user.first_name %>
+      <% if @bid %>
+        <%= @bid.price  %>
+      <% end %>
+      
+    </li>
+  </ul>
 
   <%= link_to "Editar leilao", edit_auction_path(@auction)%>
   <%= link_to "Visualizar leiloes", auctions_path%>
