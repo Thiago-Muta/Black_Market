@@ -4,7 +4,10 @@
     <%= @auction.item %>
     <%= @auction.description %>
     <%= @auction.user.first_name %>
-    <%= @bid.price %>
+    <% if @bid %>
+      <%= @bid.price  %>
+    <% end %>
+
   </li>
 
   <%= link_to "Editar leilao", edit_auction_path(@auction)%>
