@@ -9,10 +9,11 @@ class BidsController < ApplicationController
 
   def create
     @auction = Auction.find(params[:auction_id])
+    price = @auction.bids.empty? ? @auction.initial_price : @auction.bids.last.price + rand(1..15)
     @bid = Bid.new(
       auction: @auction,
       user: current_user,
-      price: @auction.bids.present? ? @auction.bids.last.price + rand(1..15) : @auction.initial_price
+      price: price
     )
 
     if @bid.save

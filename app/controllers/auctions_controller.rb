@@ -6,9 +6,8 @@ class AuctionsController < ApplicationController
   end
 
   def show
-    @auction = Auction.find_by(id: params[:id])
-    @bid = Bid.last
-    redirect_to auctions_path if @auction.nil?
+    @auction = Auction.find(params[:id])
+    @bid = @auction.bids.last
   end
 
   def new
@@ -18,6 +17,7 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new(auctions_params)
     @auction.user = current_user
+
     if @auction.save
       redirect_to auction_path(@auction)
     else
