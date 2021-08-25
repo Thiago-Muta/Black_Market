@@ -9,7 +9,7 @@
       <% if @bid %>
         <%= @bid.price  %>
       <%else%>
-          No bids yet!, BID In !
+          NO BIDS YET!,  BID In+ !
       <% end %>
       <% if @auction.status %>
         <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" %>

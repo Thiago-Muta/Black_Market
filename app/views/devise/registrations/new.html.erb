@@ -1,10 +1,10 @@
 <div class="container">
-  <h2>Sign up</h2>
+  <h2 id="texto">Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
+    <div class="form-inputs" id="formcolor" >
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email,

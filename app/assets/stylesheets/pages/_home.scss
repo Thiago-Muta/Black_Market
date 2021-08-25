@@ -1,11 +1,41 @@
 // Specific CSS for your home-page
-.body {
+body {
   background-color: #333333;
   font-family: latin-sans-serif;
   text-align: center;
 }
 
-.body h1 {
+h1 {
   font-family: latin-sans-serif;
   color: white;
+}
+
+// ----------------------------------
+#formcolor {
+  color: white;
+  font-size: 20px;
+}
+
+#texto {
+  color: darkgoldenrod;
+  font-style: italic;
+  font-size: 40px;
+}
+
+#foto {
+  background-image: asset-url('cod.jpg');
+  height: calc(100vh - 60px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  flex-direction: column;
+
+}
+
+
+#colorhome {
+  color: rgb(182, 1, 1);
 }
