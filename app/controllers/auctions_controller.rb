@@ -46,7 +46,7 @@ class AuctionsController < ApplicationController
 
   def close
     @auction = Auction.find(params[:auction_id])
-    @auction.update(status: false)
+    @auction.update!(status: false)
     redirect_to auction_path(@auction)
   end
 
