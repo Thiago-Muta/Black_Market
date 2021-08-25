@@ -9,6 +9,11 @@
       <li>
         <%= @auction.user.first_name %>
         <%= @bid.price %>
+        <% if @bid %>
+         <%= @bid.price  %>
+        <%else%>
+           No bids yet!, BID In !
+         <% end %>
         <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" %>
       </li>
     </ul>
