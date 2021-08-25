@@ -1,4 +1,11 @@
 // Specific CSS for your home-page
-body {
-  background-image: url("<%= image_path('cod.jpg') %>");
+.body {
+  background-color: #333333;
+  font-family: latin-sans-serif;
+  text-align: center;
+}
+
+.body h1 {
+  font-family: latin-sans-serif;
+  color: white;
 }

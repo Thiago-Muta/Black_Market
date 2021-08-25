@@ -1,16 +1,17 @@
-<h1 class='container text-center'>Ativos</h1>
+<h1 class='container text-center'>Active Auctions</h1>
 
-<div class="container text-center">
-  <% @auctions.each do |auction|%>
-    <ul class="card">
-      <li>
-        <%= auction.initial_price %>
-        <%= auction.item %></p>
-      </li>
-      <%= link_to "Visualizar detalhes", auction_path(auction)%>
-    </ul>
-  <% end %>
-  <div class="btn text-center">
-    <%= link_to "criar um leilao", new_auction_path%>
+<body class="body">
+  <div class="container text-center">
+    <% @auctions.each do |auction|%>
+      <div class="card">
+          <%= auction.initial_price %>
+          <%= auction.item %></p>
+        <%= link_to "View Details", auction_path(auction), class: "btn" %>
+      </div>
+      <br>
+    <% end %>
+    <div class="text-center">
+      <%= link_to "Create a Auctions", new_auction_path, class: "btn" %>
+    </div>
   </div>
-</div>
+</body>
