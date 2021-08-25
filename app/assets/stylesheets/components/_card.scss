@@ -1,0 +1,23 @@
+.card {
+  background-color: #333333;
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px darkgoldenrod;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: darkgoldenrod;
+  font-weight: bolder;
+  text-shadow: 0 0 10px black;
+}
+
+.cards {
+  padding: 16px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
