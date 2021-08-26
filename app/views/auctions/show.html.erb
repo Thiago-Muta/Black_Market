@@ -13,9 +13,12 @@
     </div>
     <div class="col-4 justify-content-center">
 
-      <h3><% if @bid %>
+      <h3><% if @bid.present? %>
             Current Bid: <strong><%= @bid.price  %> US$</strong>
-            Last Bid: <%= @auction.bids[-2].user.first_name%> <%= @auction.bids[-2].price%>
+            <% if @auction.bids[-2].present? %>
+              Last Bid:<%=@auction.bids[-2].user.first_name %>
+              <%=@auction.bids[-2].price %>
+            <% end %>
           <%else%>
             NO BIDS YET! Min bid <%= @auction.initial_price %> !
           <% end %>
@@ -25,7 +28,12 @@
             <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" if @auction.user != current_user %>
           <% else %>
             <p>Auction CLOSED!</p>
-            Winner: <%= @bid.user.first_name%>
+            <% if @bid.present? %>
+              Winner: <%= @bid.user.first_name %>
+             <% else %>
+              Not Winner.....
+            <% end %>
+             <%# <%="Winner:", @bid.user.first_name if @bid.present? %>
           <% end %>
       </h3>
     </div>
