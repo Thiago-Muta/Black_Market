@@ -5,10 +5,10 @@ class AuctionsController < ApplicationController
     @auctions = Auction.all
     if params[:query]
       @auctions = Auction.joins(:user).where("
-      auctions.item @@ :batata OR
-      users.first_name @@ :batata OR
-      users.last_name @@ :batata
-      ", batata: params[:query])
+      auctions.item @@ :query OR
+      users.first_name @@ :query OR
+      users.last_name @@ :query
+      ", query: params[:query])
     end
   end
 
@@ -55,6 +55,14 @@ class AuctionsController < ApplicationController
     @auction = Auction.find(params[:auction_id])
     @auction.update!(status: false)
     redirect_to auction_path(@auction)
+  end
+
+  def active
+    @auctions = Auction.where(status: true)
+  end
+
+  def off
+    @auctions = Auction.where(status: false)
   end
 
   private
