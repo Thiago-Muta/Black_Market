@@ -27,13 +27,14 @@
       <%else%>
         <span>Auction CLOSED!</span>
       <% end %>
-
-
-      
     </div>
   </div>
 
-  <%= link_to "Close auction", auction_close_path(@auction), method: :patch, class: "btn" %>
+  <% if @auction.user == current_user %>
+    <%= link_to "Close auction", auction_close_path(@auction), method: :patch, class: "btn" %>
+  <% end %>
+
+
   <%= link_to "Edit Auctions", edit_auction_path(@auction), class: "btn" %>
   <%= link_to "View Auctions", auctions_path, class: "btn" %>
   <%= link_to "Delete", auction_path, method: :delete, data: { confirm: "Your auction has been deleted" }, class: "btn" %>
