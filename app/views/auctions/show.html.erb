@@ -1,23 +1,37 @@
-<h1 class="container text-center">Details</h1>
-<div class="container text-center">
-  <ul class="card">
-    <li class="cl">
+<h1>Details</h1>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-5 justify-content-center ">
+      foto
+    </div>
+
+    <div class="col-4 justify-content-center">
       <%= @auction.item %>
       <%= @auction.description %>
       <p>Vendedor: <%= @auction.user.first_name.capitalize %></p>
       <p>Preço inicial: <%= @auction.initial_price %></p>
+    </div>
+
+    <div class="col-3 justify-content-center">
       <% if @bid %>
-        <%= @bid.price  %>
+        Lançe atual: <%= @bid.price  %> US$
       <%else%>
-          NO BIDS YET!,  BID In+ !
+          NO BIDS YET!, Min bid <%= @auction.initial_price %> !
       <% end %>
+
       <% if @auction.status %>
         <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" %>
       <%else%>
         <span>Auction CLOSED!</span>
       <% end %>
-    </li>
-  </ul>
+
+
+      
+    </div>
+  </div>
 
   <%= link_to "Close auction", auction_close_path(@auction), method: :patch, class: "btn" %>
   <%= link_to "Edit Auctions", edit_auction_path(@auction), class: "btn" %>

@@ -14,10 +14,22 @@
   text-shadow: 0 0 10px black;
 }
 
+// .cards {
+//   padding: 16px;
+//   flex-grow: 1;
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-gap: 16px;
+// }
+
 .cards {
-  padding: 16px;
-  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.card-category {
+  text-align: center;
+
+  background-color: aquamarine;
 }
