@@ -1,45 +1,42 @@
 <h1>Details</h1>
 
-
 <div class="container">
-  <div class="row justify-content-center">
-
-    <div class="col-5 justify-content-center ">
+  <div class="card-product row">
       <% if @auction.photo.attached? %>
-        <%= cl_image_tag @auction.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @auction.photo.key, class: "card-product-img col-3" %>
       <% end %>
+    <div class="card-product-infos col-4">
+      <h2>Auctioneer: <%= @auction.user.first_name.capitalize %></h2>
+      <p>Item: <%= @auction.item %> </p>
+      <p>Description: <%= @auction.description %> </p>
+      <p>Initial Price: <%= @auction.initial_price %>,00 US$</p>
     </div>
-
     <div class="col-4 justify-content-center">
-      <%= @auction.item %>
-      <%= @auction.description %>
-      <p>Vendedor: <%= @auction.user.first_name.capitalize %></p>
-      <p>Preço inicial: <%= @auction.initial_price %></p>
-    </div>
 
-    <div class="col-3 justify-content-center">
-      <% if @bid %>
-        Lançe atual: <%= @bid.price  %> US$
-        Ultimo lançe: <%= @auction.bids[-2].user.first_name%> <%= @auction.bids[-2].price%>
-      <% else %>
-          NO BIDS YET!, Min bid <%= @auction.initial_price %> !
-      <% end %>
+      <h3><% if @bid %>
+            Current Bid: <strong><%= @bid.price  %> US$</strong>
+            Last Bid: <%= @auction.bids[-2].user.first_name%> <%= @auction.bids[-2].price%>
+          <%else%>
+            NO BIDS YET! Min bid <%= @auction.initial_price %> !
+          <% end %>
 
-      <% if @auction.status %>
-        <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" %>
-      <%else%>
-        <span>Auction CLOSED!</span>
-       ganhador <%= @bid.user.first_name%>
-      <% end %>
+          <% if @auction.status %>
+            <p> Auction OPEN! </p>
+            <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" if @auction.user != current_user %>
+          <% else %>
+            <p>Auction CLOSED!</p>
+            Winner: <%= @bid.user.first_name%>
+          <% end %>
+      </h3>
     </div>
   </div>
+
+  <%= link_to "View Auctions", auctions_path, class: "btn" %>
 
   <% if @auction.user == current_user %>
     <%= link_to "Close auction", auction_close_path(@auction), method: :patch, class: "btn" %>
     <%= link_to "Edit Auctions", edit_auction_path(@auction), class: "btn" %>
-    <%= link_to "Delete", auction_path, method: :delete, data: { confirm: "Your auction has been deleted" }, class: "btn" %>
+    <%= link_to "Delete", auction_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn" %>
   <% end %>
 
-
-  <%= link_to "View Auctions", auctions_path, class: "btn" %>
 </div>

@@ -3,8 +3,8 @@
 <div class='container text-center' id='formcolor'>
   <%= simple_form_for @auction do |f| %>
     <%= f.input :item, label: 'Nome do item' %>
-    <%= f.input :description %>
-    <%= f.input :initial_price %>
+    <%= f.input :description, label: 'Description' %>
+    <%= f.input :initial_price, label: 'Initial Price' %>
     <%= f.input :photo, as: :file %>
     <%= f.submit class: "btn btn-primary btn-lg" %>
   <% end %>
