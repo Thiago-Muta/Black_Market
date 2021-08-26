@@ -29,7 +29,7 @@
           <%= cl_image_tag auction.photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
           <%= auction.initial_price %>
-          <%= auction.item %></p>
+          <%= auction.item %>
         <%= link_to "View Details", auction_path(auction), class: "btn" %>
       </div>
     <% end %>
