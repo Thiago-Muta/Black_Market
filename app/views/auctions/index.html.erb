@@ -6,18 +6,16 @@
     </button>
   </div>
 </form> %>
-
-<%= form_tag auctions_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a auction"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+<div class="container">
+  <%= form_tag auctions_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Auction"
+    %>
+    <%= submit_tag "Search", class: "btn-Search" %>
 <% end %>
-
-
-
+</div>
 <h1>Active Auctions</h1>
 
   <div class="text-center">

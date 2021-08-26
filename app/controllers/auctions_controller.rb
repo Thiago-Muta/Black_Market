@@ -14,7 +14,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
-    @bid = @auction.bids
+    @bid = @auction.bids.last
   end
 
   def new
