@@ -14,7 +14,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
-    @bid = @auction.bids.last
+    @bid = @auction.bids
   end
 
   def new
@@ -60,6 +60,6 @@ class AuctionsController < ApplicationController
   private
 
   def auctions_params
-    params.require(:auction).permit(:item, :description, :initial_price)
+    params.require(:auction).permit(:item, :description, :initial_price, :photo)
   end
 end
