@@ -1,0 +1,19 @@
+<% if @auctions.present? %>
+<h1>Off Auctions</h1>
+
+  <div class="cards">
+      <% @auctions.each do |auction|%>
+        <div class="card-category">
+          <% if auction.photo.attached? %>
+            <%= cl_image_tag auction.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+            <%= auction.initial_price %>
+            <%= auction.item %></p>
+          <%= link_to "View Details", auction_path(auction), class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+
+<% else %>
+  <h1>Not Off Auctions</h1>
+<% end %>

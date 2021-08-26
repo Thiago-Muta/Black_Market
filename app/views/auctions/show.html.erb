@@ -19,9 +19,9 @@
 
     <div class="col-3 justify-content-center">
       <% if @bid %>
-        Lançe atual: <%= @bid.last.price  %> US$
-        <%# Ultimo lançe: <%= @auction.user_id.first_name %> <%=@bid.last(2).price  %>
-      <%else%> %>
+        Lançe atual: <%= @bid.price  %> US$
+        Ultimo lançe: <%= @auction.bids[-2].user.first_name%> <%= @auction.bids[-2].price%>
+      <% else %>
           NO BIDS YET!, Min bid <%= @auction.initial_price %> !
       <% end %>
 
@@ -29,16 +29,17 @@
         <%= link_to "Bid", auction_bids_path(@auction), method: :post, class: "btn" %>
       <%else%>
         <span>Auction CLOSED!</span>
+       ganhador <%= @bid.user.first_name%>
       <% end %>
     </div>
   </div>
 
   <% if @auction.user == current_user %>
     <%= link_to "Close auction", auction_close_path(@auction), method: :patch, class: "btn" %>
+    <%= link_to "Edit Auctions", edit_auction_path(@auction), class: "btn" %>
+    <%= link_to "Delete", auction_path, method: :delete, data: { confirm: "Your auction has been deleted" }, class: "btn" %>
   <% end %>
 
 
-  <%= link_to "Edit Auctions", edit_auction_path(@auction), class: "btn" %>
   <%= link_to "View Auctions", auctions_path, class: "btn" %>
-  <%= link_to "Delete", auction_path, method: :delete, data: { confirm: "Your auction has been deleted" }, class: "btn" %>
 </div>

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :auctions do
     resources :bids, only: [:new, :create, :index]
     patch 'close', to: 'auctions#close'
+    collection do
+      get :active
+      get :off
+    end
   end
   resources :bids, only: [:show, :destroy]
 end

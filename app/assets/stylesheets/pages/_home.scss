@@ -32,14 +32,18 @@ h1 {
   justify-content: center;
   color: red;
   flex-direction: column;
-
 }
 
 
 #colorhome {
   color: rgb(182, 1, 1);
+  display: inline-block;
 }
 
 .row {
   background-color: yellow;
+}
+
+.typed-cursor {
+  font-size: 50px;
 }
