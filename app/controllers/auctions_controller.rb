@@ -3,6 +3,13 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    if params[:query]
+      @auctions = Auction.joins(:user).where("
+      auctions.item @@ :batata OR
+      users.first_name @@ :batata OR
+      users.last_name @@ :batata
+      ", batata: params[:query])
+    end
   end
 
   def show
