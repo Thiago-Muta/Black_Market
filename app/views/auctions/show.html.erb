@@ -15,10 +15,10 @@
     <div class="col-4 justify-content-center">
 
       <h3><% if @bid.present? %>
-            Current Bid: <strong><%= @bid.price  %> US$</strong>
-            <% if @auction.bids[-2].present? %>
-              Last Bid:<%=@auction.bids[-2].user.first_name %>
-              <%=@auction.bids[-2].price %>
+            Current Bid: <strong><%= @bid.price  %>,00 US$</strong>
+            <p><% if @auction.bids[-2].present? %>
+              Previous Bid: <%=@auction.bids[-2].user.first_name%>
+              <%=@auction.bids[-2].price %>,00 US$</p>  
             <% end %>
           <%else%>
             NO BIDS YET! Min bid <%= @auction.initial_price %> !
