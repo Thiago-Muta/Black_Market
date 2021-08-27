@@ -3,7 +3,9 @@
 <div class="container">
   <div class="card-product row">
       <% if @auction.photo.attached? %>
-      <%= cl_image_tag @auction.photo.key, class: "col-3" %>
+        <%= cl_image_tag @auction.photo.key, class: "card-product-img col-3" %>
+      <%else %>
+        <%= image_tag("noimage.jpg")%>
       <% end %>
     <div class="card-product-infos col-4">
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -18,7 +20,7 @@
             Current Bid: <strong><%= @bid.price  %>,00 US$</strong>
             <p><% if @auction.bids[-2].present? %>
               Previous Bid: <%=@auction.bids[-2].user.first_name%>
-              <%=@auction.bids[-2].price %>,00 US$</p>  
+              <%=@auction.bids[-2].price %>,00 US$</p>
             <% end %>
           <%else%>
             NO BIDS YET! Min bid <%= @auction.initial_price %> !
@@ -49,3 +51,5 @@
   <% end %>
 
 </div>
+
+<img src="" alt="">
