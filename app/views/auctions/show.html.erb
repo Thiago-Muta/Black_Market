@@ -10,6 +10,7 @@
     <% end %>
   <div class="card-product-infos col-4">
 
+
     <% if @auction.user.photo.attached? %>
       <%= cl_image_tag @auction.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <%else %>
@@ -27,7 +28,7 @@
           Current Bid: <strong><%= @bid.price  %>,00 US$</strong>
           <% if @auction.bids[-2].present? %>
           <br>
-            Last Bid:<%=@auction.bids[-2].user.first_name %>
+            Previous Bid:<%=@auction.bids[-2].user.first_name %>
             <%=@auction.bids[-2].price %>,00 US$
           <% end %>
         <%else%>

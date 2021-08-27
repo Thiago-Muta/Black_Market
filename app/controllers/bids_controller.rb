@@ -11,7 +11,7 @@ class BidsController < ApplicationController
     @auction = Auction.find(params[:auction_id])
 
     if @auction.status
-      price = @auction.bids.empty? ? @auction.initial_price : @auction.bids.last.price + rand(1..15)
+      price = @auction.bids.empty? ? @auction.initial_price : @auction.bids.last.price + rand(11..83)
       @bid = Bid.new(
         auction: @auction,
         user: current_user,
