@@ -2,6 +2,7 @@
 
 <div class="container">
   <div class="card-product row">
+
     <% if @auction.photo.attached? %>
       <%= cl_image_tag @auction.photo.key, class: "card-product-img col-3" %>
     <%else %>
