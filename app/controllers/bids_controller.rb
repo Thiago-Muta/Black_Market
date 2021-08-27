@@ -9,17 +9,22 @@ class BidsController < ApplicationController
 
   def create
     @auction = Auction.find(params[:auction_id])
-    price = @auction.bids.empty? ? @auction.initial_price : @auction.bids.last.price + rand(1..15)
-    @bid = Bid.new(
-      auction: @auction,
-      user: current_user,
-      price: price
-    )
 
-    if @bid.save
-      redirect_to @auction, notice: 'bid was successfully created.'
+    if @auction.status
+      price = @auction.bids.empty? ? @auction.initial_price : @auction.bids.last.price + rand(1..15)
+      @bid = Bid.new(
+        auction: @auction,
+        user: current_user,
+        price: price
+      )
+      if @bid.save
+        redirect_to @auction, notice: 'bid was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to @auction, alert: 'Auction already closed!'
     end
   end
+
 end
