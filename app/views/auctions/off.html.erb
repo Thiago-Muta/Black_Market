@@ -1,19 +1,26 @@
-<% if @auctions.present? %>
-<h1>Off Auctions</h1>
+<div class="container justify-content space-between">
+  <% if @auctions.present? %>
+  <h1 class="title">Off Auctions</h1>
 
-  <div class="cards">
-      <% @auctions.each do |auction|%>
-        <div class="card-category">
+    <div class="row justify-content-between mx-auto">
+        <% @auctions.each do |auction|%>
+          <div class="card-category mx-1 my-2">
           <% if auction.photo.attached? %>
-            <%= cl_image_tag auction.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag auction.photo.key, class: 'card-product-img', height: 300, width: 350, crop: :fill %>
+          <% else %>
+            <%= image_tag("noimage.jpg", class: 'card-product-img', height: 300, width: 350, crop: :fill) %>
           <% end %>
-            <%= auction.initial_price %>
-            <%= auction.item %></p>
-          <%= link_to "View Details", auction_path(auction), class: "btn" %>
-        </div>
-      <% end %>
-    </div>
-
-<% else %>
-  <h1>Not Off Auctions</h1>
-<% end %>
+            <div class="card-info">
+              <p>Seller:  <%= auction.user.first_name.capitalize %></p>
+              <p>Initial Price: <%= auction.initial_price %> US$</p>
+              <p>Item Name: <%= auction.item %></p>
+            <%= link_to "View Details", auction_path(auction), class: "btn" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  <% else %>
+    <h1 class="title">Not Closed Auctions</h1>
+  <%end %>
+  <%= link_to "Go to Active Auctions", auctions_path, class: "btn" %>
+</div>

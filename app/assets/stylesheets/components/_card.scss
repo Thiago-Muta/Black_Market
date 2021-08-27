@@ -12,21 +12,16 @@
   color: darkgoldenrod;
   font-weight: bolder;
   text-shadow: 0 0 10px black;
-  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-}
+  font-family: 'Noto Sans JP', sans-serif;}
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
 
 .card-category {
+  width: 350px;
+  border-radius: 20px;
   text-align: center;
-  background-color: rgb(94, 255, 0);
-
-
-
+  background-color: #e7dfdf;
+  font-size: 25px;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .card-product {
@@ -37,16 +32,12 @@
   box-shadow: 0 0 15px darkgoldenrod;
   display: flex;
   align-items: center;
-  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .card-product-img {
-  // border-radius: 20px;
-  // margin-left: 10px;
-  height: auto;
-  width: auto;
+  border-radius: 20px 20px 0 0px;
   object-fit: cover;
-  // border: 5px solid white;
 }
 
 .card-product .card-product-infos {
@@ -54,28 +45,31 @@
 }
 
 .card-product-infos {
-  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-  text-align: left;
+font-family: 'Noto Sans JP', sans-serif;  text-align: left;
   font-size: 5px
 }
 
 .card-product h2 {
   font-size: 25px;
   font-weight: bold;
-  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-  margin: 0;
+font-family: 'Noto Sans JP', sans-serif;  margin: 0;
 }
 
 .card-product h3 {
   font-size: 25px;
-  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-}
+font-family: 'Noto Sans JP', sans-serif;}
 
 .card-product p {
   font-size: 20px;
-  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-  line-height: 1.4;
+font-family: 'Noto Sans JP', sans-serif;  line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-info {
+  margin-top: 10px;
+  p {
+    margin: 0;
+  }
 }
