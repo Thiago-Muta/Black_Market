@@ -1,4 +1,4 @@
-<h1>Details</h1>
+<h1 class="title">Details</h1>
 
 <div class="container">
   <div class="card-product row">
@@ -24,10 +24,11 @@
   <div class="col-4 justify-content-center">
 
     <h3><% if @bid.present? %>
-          Current Bid: <strong><%= @bid.price  %> US$</strong>
+          Current Bid: <strong><%= @bid.price  %>,00 US$</strong>
           <% if @auction.bids[-2].present? %>
+          <br>
             Last Bid:<%=@auction.bids[-2].user.first_name %>
-            <%=@auction.bids[-2].price %>
+            <%=@auction.bids[-2].price %>,00 US$
           <% end %>
         <%else%>
           NO BIDS YET! Min bid <%= @auction.initial_price %> !
