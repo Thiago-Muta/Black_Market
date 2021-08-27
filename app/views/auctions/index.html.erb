@@ -6,7 +6,8 @@
     </button>
   </div>
 </form> %>
-<div class="container">
+<div class="container justify-content space-between">
+  <h1 class='title'>All Auctions</h1>
   <%= form_tag auctions_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -14,31 +15,27 @@
       placeholder: "Find a Auction"%>
     <%= submit_tag "Search", class: "btn-Search" %>
   <% end %>
-</div>
-<h1>Active Auctions</h1>
 
-  <div class="text-center">
-    <%= link_to "Create a Auctions", new_auction_path, class: "btn" %>
-  </div>
-
-<div class="container justify-content space-between">
   <div>
-    <div class="cards">
+    <div class="row justify-content-between mx-auto">
       <% @auctions.each do |auction|%>
-        <div class="card-category inline-block">
+        <div class="card-category mx-1 my-2 ">
           <% if auction.photo.attached? %>
-            <%= cl_image_tag auction.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag auction.photo.key, class: 'card-product-img', height: 300, width: 350, crop: :fill %>
           <% else %>
-            <%= image_tag("noimage.jpg") %>
+            <%= image_tag("noimage.jpg", class: 'card-product-img', height: 300, width: 350, crop: :fill) %>
           <% end %>
-          <div>
+          <div class="card-info">
               <p>Seller:  <%= auction.user.first_name.capitalize %></p>
               <p>Initial Price: <%= auction.initial_price %> US$</p>
               <p>Item Name: <%= auction.item %></p>
-            <%= link_to "View Details", auction_path(auction), class: "btn" %>
+              <%= link_to "View Details", auction_path(auction), class: "btn px-5" %>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
+  <div class="text-center">
+    <%= link_to "Create a Auctions", new_auction_path, class: "btn px-5" %>
   </div>
 </div>

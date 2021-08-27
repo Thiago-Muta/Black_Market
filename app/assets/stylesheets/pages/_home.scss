@@ -29,17 +29,17 @@ h1 {
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  color: red;
   flex-direction: column;
 }
 
 
 #colorhome {
-  color: rgb(182, 1, 1);
+  color: white;
   display: inline-block;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-size: 50px;
 }
 
 // .row {
@@ -48,4 +48,8 @@ h1 {
 
 .typed-cursor {
   font-size: 50px;
+}
+
+.home-btn {
+  margin-top: 250px;
 }
